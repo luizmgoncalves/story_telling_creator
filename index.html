@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia</title>
+
+    <style>
+        body{
+            background-color: rgb(112, 112, 112);
+        }
+        div{
+            text-align: center;
+            width: 100%;
+        }
+        .title{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            background-color: rgb(161, 163, 167);
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1#history_title{
+            text-align: center;
+            font-family:'Lucida Handwriting';
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="title">
+            <h1 id="history_title"></h1>
+        </div>
+    </div>
+
+    <script>
+        var title = document.getElementById("history_title")
+
+        // ↓ Aqui posteriormente irei carregar o título do json da história
+        title.innerText = "Noite aparentemente comum" 
+
+    </script>
+</body>
+</html>
