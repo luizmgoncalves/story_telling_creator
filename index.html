@@ -82,8 +82,16 @@
             }
         }
 
+        function mouse_above_option(){
+            this.style.backgroundColor = 'rgba(0, 0, 0, 255)'
+        }
+
+        function mouse_non_above_option(){
+            this.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+        }
+
         main_json = {
-            "Title": "Noite aparentemente comum",
+            "Titulo": "Noite aparentemente comum",
             "Escolhas": [
             {
                 "id": 0,
@@ -116,7 +124,7 @@
 
         var title = document.getElementById("history_title")
         // ↓ Aqui posteriormente irei carregar o título do json da história
-        title.innerText = main_json.Title
+        title.innerText = main_json.Titulo
 
         var current_choice = 0;
         var options;
@@ -138,6 +146,8 @@
                 el.id = option.Id
                 el.innerHTML = `<p class="option"> ${option.Texto}</p>`
                 el.addEventListener('click', option_clicked, false)
+                el.addEventListener('mouseover', mouse_above_option, false)
+                el.addEventListener('mouseout', mouse_non_above_option, false)
                 options_div.appendChild(el)
             });
             
