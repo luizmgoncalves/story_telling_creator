@@ -74,37 +74,76 @@
     </div>
 
     <script>
-        function test() {
-            console.log(options[this.id-1].link, options[this.id-1].Texto)
+        function option_clicked() {
+            console.log(options[this.id].link, options[this.id].Texto)
+            if (options[this.id].link !== null){
+                current_choice = options[this.id].link
+                load_history()
+            }
         }
+
+        main_json = {
+            "Title": "Noite aparentemente comum",
+            "Escolhas": [
+            {
+                "id": 0,
+                "História": "Acabou a comida da sua geladeira, você sai as 21:00 da noite para buscar comida no mercado (2 quarteirões da sua casa)...",
+                "Opções": [
+                    {"Id": 0, "Texto": "Ir de carro", "link": 1},
+                    {"Id": 1, "Texto": "Ir a pé", "link": 2}
+                ]
+            },
+
+            {
+                "id": 1,
+                "História": "Você está indo de carro, mas uma pessoa de parou e pediu carona, ela falou que está indo para o mesmo supermercado.",
+                "Opções": [
+                    {"Id": 0, "Texto": "Dar a carona", "link": null},
+                    {"Id": 1, "Texto": "Não dar carona", "link": null}
+                ]
+            },
+
+            {
+                "id": 2,
+                "História": "Você chegou ao supermercado, houviu alguns barulhos estranhos ao longo do caminho, perto de casa. Está com medo...",
+                "Opções": [
+                    {"Id": 0, "Texto": "Voltar para casa e tentar dormir", "link": null},
+                    {"Id": 1, "Texto": "Ir para a casa de amigos", "link": null}
+                ]
+            }
+        ]}
+
 
         var title = document.getElementById("history_title")
         // ↓ Aqui posteriormente irei carregar o título do json da história
-        title.innerText = "Noite aparentemente comum" 
+        title.innerText = main_json.Title
 
+        var current_choice = 0;
+        var options;
 
-        var content = document.getElementById("History")
-        var historia = `Acabou a comida da sua geladeira, você sai as 21:00 da noite para buscar comida no mercado (2 quarteirões da sua casa)...`
-        content.innerText = historia
+        function load_history(){
+            var content = document.getElementById("History")
+            
+            content.innerText = main_json.Escolhas[current_choice].História
 
-        var options = [
-            {"Id": 1, "Texto": "Ir de carro", "link": 2},
-            {"Id": 2, "Texto": "Ir a pé", "link": 3}
-        ]
+            options = main_json.Escolhas[current_choice].Opções
 
-        var options_div = document.getElementById("options")
+            var options_div = document.getElementById("options")
 
+            options_div.innerHTML = ""
 
-        options.forEach(option => {
-            let el = document.createElement('div')
-            el.className = "option"
-            el.id = option.Id
-            el.innerHTML = `<p class="option"> ${option.Texto}</p>`
-            el.addEventListener('click', test, false)
-            options_div.appendChild(el)
-        });
-        
+            options.forEach(option => {
+                let el = document.createElement('div')
+                el.className = "option"
+                el.id = option.Id
+                el.innerHTML = `<p class="option"> ${option.Texto}</p>`
+                el.addEventListener('click', option_clicked, false)
+                options_div.appendChild(el)
+            });
+            
+        }
 
+        load_history()
         
 
     </script>
