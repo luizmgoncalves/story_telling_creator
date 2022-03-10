@@ -10,7 +10,7 @@
         body{
             background-color: rgb(112, 112, 112);
         }
-        div{
+        div.ex_title{
             text-align: center;
             width: 100%;
         }
@@ -29,20 +29,83 @@
             text-align: center;
             font-family:'Lucida Handwriting';
         }
+        #content{
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        p{
+            text-indent: 40px;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        div.option{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+
+            width: max-content;
+        }
+        p.option{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            background-color: rgb(2, 2, 2);
+            color: white;
+            font-size: 15px;
+            text-indent: 0px;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="ex_title">
         <div class="title">
             <h1 id="history_title"></h1>
         </div>
     </div>
 
-    <script>
-        var title = document.getElementById("history_title")
+    <div id="content">
+        <p id="History"></p>
+        <p>O que você escolhe?</p>
+        <div id="options"></div>
+    </div>
 
+    <script>
+        function test() {
+            console.log(options[this.id-1].link, options[this.id-1].Texto)
+        }
+
+        var title = document.getElementById("history_title")
         // ↓ Aqui posteriormente irei carregar o título do json da história
         title.innerText = "Noite aparentemente comum" 
+
+
+        var content = document.getElementById("History")
+        var historia = `Acabou a comida da sua geladeira, você sai as 21:00 da noite para buscar comida no mercado (2 quarteirões da sua casa)...`
+        content.innerText = historia
+
+        var options = [
+            {"Id": 1, "Texto": "Ir de carro", "link": 2},
+            {"Id": 2, "Texto": "Ir a pé", "link": 3}
+        ]
+
+        var options_div = document.getElementById("options")
+
+
+        options.forEach(option => {
+            let el = document.createElement('div')
+            el.className = "option"
+            el.id = option.Id
+            el.innerHTML = `<p class="option"> ${option.Texto}</p>`
+            el.addEventListener('click', test, false)
+            options_div.appendChild(el)
+        });
+        
+
+        
 
     </script>
 </body>
