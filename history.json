@@ -1,31 +1,110 @@
 {
-    "Titulo": "Noite aparentemente comum",
+    "Titulo": "Nível 1 - Shindal",
     "Escolhas": [
-        {
-            "id": 0,
-            "História": "Acabou a comida da sua geladeira, você sai as 21:00 da noite para buscar comida no mercado (2 quarteirões da sua casa)...",
-            "Opções": [
-                {"Id": 0, "Texto": "Ir de carro", "link": 1},
-                {"Id": 1, "Texto": "Ir a pé", "link": 2}
-            ]
-        },
+    {
+        "id": 0,
+        "História": "Sua jornada o levou até os arredores do reino de Shindal.",
+        "Opções": [
+            {"Id": 0, "Texto": "Visitar a cidade", "link": 1},
+            {"Id": 1, "Texto": "Seguir viagem", "link": 2}
+        ]
+    },
 
-        {
-            "id": 1,
-            "História": "Você está indo de carro, mas uma pessoa de parou e pediu carona, ela falou que está indo para o mesmo supermercado.",
-            "Opções": [
-                {"Id": 0, "Texto": "Dar a carona", "link": null},
-                {"Id": 1, "Texto": "Não dar carona", "link": null}
-            ]
-        },
+    {
+        "id": 1,
+        "História": "Você está caminhando pela cidade. Há varias pessoas na praça, mas um homem lhe chama atenção.",
+        "Opções": [
+            {"Id": 0, "Texto": "Ir até o homem", "link": 3},
+            {"Id": 1, "Texto": "Ignorar", "link": 4}
+        ]
+    },
 
-        {
-            "id": 2,
-            "História": "Você chegou ao supermercado, houviu alguns barulhos estranhos ao longo do caminho, perto de casa. Está com medo...",
-            "Opções": [
-                {"Id": 0, "Texto": "Voltar para casa e tentar dormir", "link": null},
-                {"Id": 1, "Texto": "Ir para a casa de amigos", "link": null}
-            ]
-        }
-    ]
-}
+    {
+        "id": 2,
+        "História": "Você contunua sua caminhada... Está se distanciando da cidade quando um homem aparece na sua frente. \n— Olá, Viajante! Me chamo Gryn. Preciso da sua ajuda. O reino corre perigo! Por favor nos ajude!",
+        "Opções": [
+            {"Id": 0, "Texto": "Aceitar judar o Gryn", "link": 10},
+            {"Id": 1, "Texto": "Negar ajuda e seguir viagem", "link": 5}
+        ]
+    },
+
+    {
+        "id": 3,
+        "História": "— Olá, Viajante! Vejo que notou que estou lhe observando. Me chamo Gryn. Preciso da sua ajuda. O reino corre perigo! Por favor nos ajude!",
+        "Opções": [
+            {"Id": 0, "Texto": "Aceitar ajudar o Gryn", "link": 10},
+            {"Id": 1, "Texto": "Negar ajuda e seguir viagem", "link": 5}
+        ]
+    },
+
+    {
+        "id": 4,
+        "História": "Você está caminhando quando alguém lhe toca o ombro. \n— Olá, Viajante! Sinto muito incomodá-lo num momento de descanso. Me chamo Gryn. Preciso da sua ajuda. O reino corre perigo! Por favor nos ajude!",
+        "Opções": [
+            {"Id": 0, "Texto": "Aceitar judar o Gryn", "link": 10},
+            {"Id": 1, "Texto": "Negar ajuda e seguir viagem", "link": 5}
+        ]
+    },
+
+    {
+        "id": 5,
+        "História": "Você negou ajuda para o Gryn e continuou o seu trajeto. Você se sentiu observado.",
+        "Opções": [
+            {"Id": 0, "Texto": "Investigar…", "link": 6},
+            {"Id": 1, "Texto": "Ignorar", "link": 7}
+        ]
+    },
+
+    {
+        "id": 6,
+        "História": "Ó não! Ladrões!",
+        "Opções": [
+            {"Id": 0, "Texto": "Enfrenta-los", "link": 8},
+            {"Id": 1, "Texto": "Ignorar e seguir viagem", "link": 7}
+        ]
+    },
+
+    {
+        "id": 7,
+        "História": "Fim do nível.\n Você não completou missões!",
+        "Opções": [
+            {"Id": 0, "Texto": "recomeçar", "link": 0},
+            {"Id": 1, "Texto": "Falar com Gryn", "link": 3}
+        ]
+    },
+
+    {
+        "id": 8,
+        "História": "Você enfrenta os ladrões. Após uma luta acirrada, dois conseguem fugir e três estão desacordados. Não deveriam ter cruzado o seu caminho.\nMinutos depois, os guardas do reino apareceram. Você foi parabenizado por capturar os ladrões.",
+        "Opções": [
+            {"Id": 0, "Texto": "Seguir viagem", "link": 9}
+        ]
+    },
+
+    {
+        "id": 9,
+        "História": "Fim do nível.\n Você completou 1 missão!",
+        "Opções": [
+            {"Id": 0, "Texto": "Recomeçar", "link": 0}
+        ]
+    },
+
+    {
+        "id": 10,
+        "História": "— Obrigado por aceitar nos ajudar! O Rei dos Trols roubou as três esferas mágicas responsáveis pelo equilibrio do reino. Precisamos que as recupere para nós.",
+        "Opções": [
+            {"Id": 0, "Texto": "Ir até o Rei dos Trols", "link": null},
+            {"Id": 1, "Texto": "Saber mais do Rei dos Trols", "link": null}
+        ]
+    },
+
+    {
+        "id": 11,
+        "História": "Você chegou ao supermercado, houviu alguns barulhos estranhos ao longo do caminho, perto de casa. Está com medo...",
+        "Opções": [
+            {"Id": 0, "Texto": "Voltar para casa e tentar dormir", "link": null},
+            {"Id": 1, "Texto": "Ir para a casa de amigos", "link": null}
+        ]
+    }
+
+]}
