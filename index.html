@@ -103,7 +103,7 @@
         history_initialization()
         load_history()
         
-        const fetchPromise = fetch('https://raw.githubusercontent.com/luizmgoncalves/story_telling_creator/main/history.json');
+        const fetchPromise = fetch('https://luizmgoncalves.github.io/story_telling_creator/history.json');
 
         fetchPromise.then( response => {
             const jsonPromise = response.json();
