@@ -1,0 +1,56 @@
+body{
+    background-color: rgb(112, 112, 112);
+}
+div.ex_title{
+    text-align: center;
+    width: 100%;
+}
+.title{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgb(161, 163, 167);
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+h5{
+    text-align: center;
+    color:rgb(110, 2, 2);
+    font-family:'Lucida Handwriting';
+}
+h1#history_title{
+    text-align: center;
+    font-family:'Lucida Handwriting';
+}
+#content{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+p{
+    text-indent: 40px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div.option{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+
+    width: max-content;
+}
+p.option{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgb(2, 2, 2);
+    color: white;
+    font-size: 15px;
+    text-indent: 0px;
+}
