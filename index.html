@@ -68,13 +68,10 @@
             }
         ]}
 
-
-        var title = document.getElementById("history_title")
-        // ↓ Aqui posteriormente irei carregar o título do json da história
-        title.innerText = main_json.Titulo
-
-        var current_choice = 0;
-        var options;
+        function history_initialization(){
+            var title = document.getElementById("history_title")
+            title.innerText = main_json.Titulo
+        }
 
         function load_history(){
             var content = document.getElementById("History")
@@ -100,9 +97,20 @@
             
         }
 
+        var current_choice = 0;
+        var options;
+
+        history_initialization()
         load_history()
         
+        const fetchPromise = fetch('https://raw.githubusercontent.com/luizmgoncalves/story_telling_creator/main/history.json');
 
+        fetchPromise.then( response => {
+            const jsonPromise = response.json();
+                jsonPromise.then( json => {
+            console.log(json);
+            });
+        });
     </script>
 </body>
 </html>
