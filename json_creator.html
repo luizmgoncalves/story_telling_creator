@@ -15,10 +15,100 @@
         </div>
     </div>
     <div id="content">
+        <div class="input_atom">
+            <h4>Título</h4>
+            <input class="input_text" type="text">
+        </div>
+        <div id="choices">
+        </div>
+        <div id="add_choice_div">
+            <button id="add_choice">Adicionar na Escolha</button>
+        </div>
         
     </div>
     <script>
-        console.log("running")
+        function show_options(){
+            let i=0
+            option = document.getElementById(this.id[this.id.length-1]+"_option_"+i.toString())
+            link = document.getElementById(this.id[this.id.length-1] + "_option_link_"+i.toString())
+            while (option !== null){
+                option.remove()
+                link.remove()
+                i++
+                option = document.getElementById(this.id[this.id.length-1] + "_option_"+i.toString())
+                link = document.getElementById(this.id[this.id.length-1] + "_option_link_"+i.toString())
+            }
+
+
+            let number_input = document.getElementById("input_number_" + this.id[this.id.length-1])
+
+            let table = document.getElementById("choice_table_" + this.id[this.id.length-1])
+
+            console.log(number_input.max, number_input.value, number_input.value > number_input.max)
+
+            if(number_input.value > Number(number_input.max) || number_input.value < 0){
+                window.alert("Número inválido, digite um número entre 0 e 5.")
+                return 
+            }
+
+            for (let i=0;i<number_input.value;i++){
+                    let el = document.createElement('tr')
+                    let el2 = document.createElement('tr')
+                    el.id = this.id[this.id.length-1] + "_option_"+i.toString()
+                    el2.id = this.id[this.id.length-1] + "_option_link_"+i.toString()
+
+                    el.innerHTML = `
+                    <td>Opção ${i}: </td> 
+                    <td><input type="text" id="${this.id[this.id.length-1]}_input_number_${i}"></td>`
+                    el2.innerHTML = `
+                    <td>Link: </td> 
+                    <td><input type="number" id="${this.id[this.id.length-1]}_input_link_${i}"></td>
+                    `
+                    
+                    table.appendChild(el)
+                    table.appendChild(el2)
+                }
+        }
+        function add_choice() {
+            let new_choice = document.createElement("div", {"class": "input_atom"})
+            new_choice.className = "input_atom"
+            console.log(actual_id)
+
+            new_choice.innerHTML = `
+                <h4>Escolha</h4>
+                <table class="choice_table" id="choice_table_${actual_id}">
+                    <tr>
+                        <td>id: </td>
+                        <td><span id="id_${actual_id}">${actual_id}</span></td>
+                    </tr>
+                    <tr>
+                        <td>História: </td>
+                        <td><textarea class="input_text" id="history_${actual_id}" cols="30" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Quantidade de opções: </td>
+                        <td><input type="number" class="input_number" id="input_number_${actual_id}" value="2" min="0" max="5"></td>
+                    </tr>
+                    <tr><td colspan="2"><button id="button_${actual_id}">Preencher opções</button></td></tr>
+                </table>
+            `
+
+            parent = document.getElementById('choices')
+            parent.appendChild(new_choice)
+            
+            let button = document.getElementById(`button_${actual_id}`)
+            button.addEventListener('click', show_options, false)
+
+            actual_id++
+
+        }
+
+        var actual_id = 0
+
+        add_choice_button = document.getElementById('add_choice')
+        add_choice_button.addEventListener('click', add_choice, false)
+
+        add_choice()
     </script>
 </body>
 </html>

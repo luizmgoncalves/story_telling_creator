@@ -89,3 +89,12 @@ div.input_atom{
     border-collapse:separate; 
     border-spacing:20px;
 }
+
+#add_choice_div{
+    width: 100%;
+    text-align: center;
+}
+
+#add_choice{
+    width: max-content;
+}
