@@ -17,16 +17,73 @@
     <div id="content">
         <div class="input_atom">
             <h4>Título</h4>
-            <input class="input_text" type="text">
+            <input class="input_text" type="text" id="title">
         </div>
         <div id="choices">
         </div>
         <div id="add_choice_div">
             <button id="add_choice">Adicionar Escolha</button>
+            <button id="submit">Gerar json</button>
         </div>
         
     </div>
     <script>
+        /*
+        {
+            "id": 0,
+            "História": "Acabou a comida da sua geladeira, você sai as 21:00 da noite para buscar comida no mercado (2 quarteirões da sua casa)...",
+            "Opções": [
+                {"Id": 0, "Texto": "Ir de carro", "link": 1},
+                {"Id": 1, "Texto": "Ir a pé", "link": 2}
+            ]
+        }
+        */
+        function generate_json(){
+            json_result = {
+                "Titulo": document.getElementById('title').value,
+                "Escolhas": []
+            }
+
+            let i=0
+
+            choice = document.getElementById(`choice_table_${i}`)
+
+            for (;choice !== null;){
+                choice_json = {
+                    "id": i,
+                    "História": document.getElementById(`history_${i}`).value,
+                    "Opções": []
+                }
+                
+                let j=0
+
+                let option = document.getElementById(i.toString()+"_option_number_"+j.toString())
+                let link = document.getElementById(i.toString()+"_option_input_link_"+j.toString())
+                while (option !== null){
+                    let option_json = {"Id": j, "Texto": option.value, "link": null}
+
+                    if (link.value > 0 && link.value < actual_id){
+                        option_json.link = link.value
+                    }
+
+                    choice_json["Opções"].push(option_json)
+
+                    j++
+                    option = document.getElementById(i.toString()+"_option_number_"+j.toString())
+                    link = document.getElementById(i.toString()+"_option_input_link_"+j.toString())
+                }
+
+                json_result['Escolhas'].push(choice_json)
+
+                i++
+
+                choice = document.getElementById(`choice_table_${i}`)
+            }
+
+            console.log(json_result)
+
+        }
+
         function show_options(){
             let i=0
             option = document.getElementById(this.id[this.id.length-1]+"_option_"+i.toString())
@@ -59,10 +116,10 @@
 
                     el.innerHTML = `
                     <td>Opção ${i}: </td> 
-                    <td><input type="text" id="${this.id[this.id.length-1]}_input_number_${i}"></td>`
+                    <td><input type="text" id="${this.id[this.id.length-1]}_option_number_${i}"></td>`
                     el2.innerHTML = `
                     <td>Link ${i}: </td> 
-                    <td><input type="number" id="${this.id[this.id.length-1]}_input_link_${i}"></td>
+                    <td><input type="number" value="-1" id="${this.id[this.id.length-1]}_option_input_link_${i}"></td>
                     `
                     
                     table.appendChild(el)
@@ -70,7 +127,7 @@
                 }
         }
         function add_choice() {
-            let new_choice = document.createElement("div", {"class": "input_atom"})
+            let new_choice = document.createElement("div")
             new_choice.className = "input_atom"
             console.log(actual_id)
 
@@ -105,8 +162,12 @@
 
         var actual_id = 0
 
-        add_choice_button = document.getElementById('add_choice')
+        let add_choice_button = document.getElementById('add_choice')
+        let submit_button = document.getElementById('submit')
+        submit_button.addEventListener('click', generate_json, false)
         add_choice_button.addEventListener('click', add_choice, false)
+
+        var json_result
 
         add_choice()
     </script>
