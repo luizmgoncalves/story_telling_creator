@@ -62,7 +62,7 @@
                 while (option !== null){
                     let option_json = {"Id": j, "Texto": option.value, "link": null}
 
-                    if (link.value > 0 && link.value < actual_id){
+                    if (link.value >= 0 && link.value < actual_id){
                         option_json.link = link.value
                     }
 
