@@ -21,7 +21,7 @@ function load_history(){
     var options_div = document.getElementById("options")
 
     
-    if(options.length == 0){
+    if(options.length <= 1){
         choice_p = document.getElementById("choice")
         choice_p.innerText = ""
     }else{
