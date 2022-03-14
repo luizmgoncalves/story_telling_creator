@@ -112,6 +112,7 @@ div.header a{
     color: white;
 }
 
+
 div.header_item{
     padding: 5px 20px 5px 20px;
     border-radius: 10px;
@@ -126,6 +127,7 @@ div.header_item{
     color: white;
     font-size: 15px;
     text-indent: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 div.header_item:hover{
